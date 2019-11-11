@@ -97,10 +97,6 @@ func (ts *Server) Run(ctx context.Context, incoming chan string, templates []*ct
 		ts.logger.Error("template server failed to generate runner config", "error", runnerConfigErr)
 		return
 	}
-	if runnerConfig == nil {
-		ts.logger.Error("template server failed to generate runner config")
-		return
-	}
 
 	var err error
 	ts.runner, err = manager.NewRunner(runnerConfig, false)
